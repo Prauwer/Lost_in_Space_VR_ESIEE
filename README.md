@@ -1,7 +1,8 @@
 # Rapport Lost in Space | Antonin Mansour - Zackary Saada - Paul Mallard | IG4
 
 > *Ressentir le vécu d’un astronaute va vous en apprendre beaucoup sur la solitude*
-> 
+
+![Untitled](https://github.com/Prauwer/LittleOuterWilds/assets/75014657/8f05b791-5e3f-4e1a-a053-1133b3a8552f)
 
 # Introduction
 
