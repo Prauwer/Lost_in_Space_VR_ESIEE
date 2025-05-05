@@ -1,0 +1,124 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2759
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica-Oblique;\f2\fswiss\fcharset0 Helvetica;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\vieww33100\viewh20220\viewkind0
+\deftab720
+\pard\pardeftab720\sl276\slmult1\sa200\qc\partightenfactor0
+
+\f0\b\fs32 \cf0 DizzyGravity - Interplanetary Movement Engine\
+\
+\pard\pardeftab720\sl276\slmult1\sa200\partightenfactor0
+\cf0 QUICK START -- 
+\f1\i\b0 Youtube Tutorial at {\field{\*\fldinst{HYPERLINK "https://youtu.be/dHcKnZRZP6g"}}{\fldrslt https://youtu.be/dHcKnZRZP6g}}
+\f0\i0\b \
+
+\f2\b0 After importing the asset to your Unity project, you need to change your project settings. Go to the physics settings and set 
+\f0\b gravity to zero
+\f2\b0 . 
+\f1\i (Edit -> Project Settings -> Physics)\
+\pard\pardeftab720\sa200\qc\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl276\slmult1\sa200\partightenfactor0
+
+\f2\i0 \cf0 Then go to the time settings and set fixed timesteps to 0.01. 
+\f1\i (Edit -> Project Settings -> Time;
+\f2\i0 \
+\pard\pardeftab720\sa200\qc\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl276\slmult1\sa200\partightenfactor0
+\cf0 Now create a new scene and delete the main camera. 
+\f0\b Open the prefabs folder 
+\f2\b0 and drag the LevelBounds prefab into your scene. Leaving this area will reset the player, so it works as a safe zone and should be extended to your level bounds.\
+Now drag the 
+\f0\b Player prefab
+\f2\b0  into the scene.\
+
+\f0\b For planets
+\f2\b0 , add a sphere to your scene (in the hierarchy, go to create -> 3D object -> sphere), resize it to 10x 10y 10z and drag the 
+\f0\b AttractorSphere prefab 
+\f2\b0 into the sphere in the hierarchy.\uc0\u8232 
+\f1\i You should see two wireframe spheres surrounding your planet, indicating the maximum distance of gravity.
+\f2\i0 \
+
+\f0\b For gravity fields
+\f2\b0 , add a cube to your scene (in the hierarchy, go to create -> 3D object -> cube), resize it to 10x 0.5y 10z and drag the 
+\f0\b EffectorBox prefab 
+\f2\b0 into the cube in the hierarchy. Select it and change its y position to 1.\uc0\u8232 
+\f1\i You should see a green arrow pointing towards the object, indicating the direction of gravity.
+\f2\i0 \
+
+\f0\b For instaDeath zones
+\f2\b0 , drag the 
+\f0\b InstaDeath prefab 
+\f2\b0 into your scene, resize and reposition it.\
+Try playing through the sample scene to get a feeling for what you can do with this asset!\
+\pard\pardeftab720\sa200\qc\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl276\slmult1\sa200\partightenfactor0
+\cf0 \
+\
+\
+
+\f0\b IMPORTANT BUILD NOTE\
+
+\f2\b0 The 
+\f0\b transparent shader 
+\f2\b0 that is applied to objects passing in front of the camera will be 
+\f0\b missing in build by default!
+\f2\b0 \uc0\u8232 To fix this, go to Edit -> Project Settings -> Graphics and increase the "Always Included Shaders" list size by one, then select the shader 
+\f0\b "Legacy Shaders/Transparent/Diffuse"
+\f2\b0 .\
+\
+\
+\
+
+\f0\b GRAVITY MODES\
+Effector
+\f2\b0  - gravity is going in a single direction, which is also where the player is oriented towards. Stays active after leaving them if no other source of gravity is in range. See effector in the script reference for more.\
+
+\f0\b Attractor
+\f2\b0  - planetoid gravity. This can be either pulling the player towards the planet's center or towards the ground the player is standing on (no matter the slope). See attractor in the script reference for more.\
+
+\f0\b Pseudo-Newtonian gravity
+\f2\b0  - when there is no effector and no attractor in range, all  attractors act as gravity sources, pulling the player depending on their gravity multiplier and the distance, similar to how gravity work in real life. The player can only rotate in this mode, as they are floating in space.\
+\
+\
+\
+
+\f0\b SCRIPT\
+Attractor
+\f2\b0  - makes its parent object act like a planet. When entering the collider in the attractor object, the player is pulled towards the planet. The pull stops once the player exits the maxSqrDistance perimiter (shown by the yellow wireframe sphere in the scene view) or once a new source of gravity acts on the player.\uc0\u8232 	Gravity Multiplier: Strength of gravity on this planet.\u8232 	Rot Axis: If the planet should rotate, put the axis of rotation here.\u8232 	Rot Angle: By how many degrees the planet should rotate per physics timestep.\u8232 	Stand On Normals: When selected, the player is not rotated towards the center of gravity, but constantly standing at a right angle to the ground. Great for having planets in non-spherical shapes, like pills.\u8232 	Max Sqr Distance: The square distance after which the player leaves the planet's gravity. Shown in the scene view as a yellow wireframe sphere.\u8232 	Game Object: Plug in a different game object here if you don't want the planet to be the attractor's parent object. Generally, it would be better to use the default configuration.\
+
+\f0\b AttractorList
+\f2\b0  - does not have to be in the scene. Keeps a list of all active attractors, which is mostly used in "pseudo-Newtonian" mode (see gravity modes reference).\
+
+\f0\b Effector
+\f2\b0  - a gravity field in a single direction. Effectors override attractors, but as soon as the player leaves the effector area, it is deactivated if an attractor is nearby. If not, the effector will be kept active as a "zombie effector" until there is a new source of gravity or the player dies.\uc0\u8232 	Gravity Multiplier: Strength of gravity in this gravity field.\u8232 	Gravity Direction: Vector in which direction to apply gravity.\u8232 	Use Local Rotation: When selected, gravity direction is rotated by the local rotation, which means that it coincides with the transform you can see in the inspector. Check the direction of the green arrow displayed in the scene view if you're unsure.\
+
+\f0\b FollowCam
+\f2\b0  - Makes the camera move and rotate with a target object. Also hides objects passing between camera and target.\uc0\u8232 	Target: The object to follow (should be the player).\u8232 	Distance: Desired distance to be behind target.\u8232 	Height Offset: How high above the target transform the camera should look. If the target has a capsule collider, this offset is starting from the center of the capsule.\u8232 	Velocity Multiplier: If the target has a rigidbody, the camera will move in the direction of its velocity by this much.\u8232 	Rotation Damping: 0 = no camera rotation, 1 = instant rotation.\u8232 	Translation Damping: 0 = no camera translation, 1 = instant translation.\
+
+\f0\b GravityCharacterController
+\f2\b0  - the bulk of character-related movement and animation; heavily modified from the standard assets' ThirdPersonCharacter.\uc0\u8232 	Moving / Stationary Turn Speed: How fast to turn when moving or standing.\u8232 	Newtonian Turn Speed: How fast to turn when there is no active source of gravity. See "pseudo-Newtonian gravity" in gravity modes reference for more.\u8232 	Jump Power: The upwards velocity of a jump.\u8232 	Increased Gravity: When not holding down jump in mid-air, gravity increases by this.\u8232 	Run Cycle Leg Offset: Only modify if you change the character model and animation.\u8232 	Run Speed Multiplier: When holding shift, animation speed increases by this.\u8232 	Ground Check Distance: How far the ground raycast checks. If the raycast hits something, the player is grounded, so if this value is too high, jumping is impossible, but if it's to low, downward slopes will act like ledges.\u8232 	Fall Check Distance: On planets with standOnNormals enabled, the ground may be this far below player before rotating towards center of gravity. If the value is too high, it may be possible to "fall off" these planets.\
+
+\f0\b ItemPhysics
+\f2\b0  - handles the physics for objects.\uc0\u8232 	Grav Switch Timeout: How long attractors have to wait after a gravity change before being able to switch to them. A safety measure to fight twitching.\u8232 	Newton Gravity Scale: How strong gravity should be when there is no active source of gravity. See "pseudo-Newtonian gravity" in gravity modes reference for more.\u8232 	Effector / Attractor: The active source of gravity is shown here for bugfixing.\
+
+\f0\b PlayerPhysics
+\f2\b0  - handles most of the physics for players.\uc0\u8232 	Rotate Speed: How quickly to rotate towards a new "downwards."\u8232 	Grav Switch Timeout: How long attractors have to wait after a gravity change before being able to switch to them. A safety measure to fight twitching.\u8232 	Newton Gravity Scale: How strong gravity should be when there is no active source of gravity. See "pseudo-Newtonian gravity" in gravity modes reference for more.\u8232 	Effector / Attractor: The active source of gravity is shown here for bugfixing.\
+
+\f0\b ThirdPersonUserControl
+\f2\b0  - the input that is forwarded to GravityCharacterController. Only slightly modified from the standard assets' ThirdPersonUserControl (not using CrossPlatformInput & not using a relative movement vector).\
+
+\f0\b TransparentObscure
+\f2\b0  - automatically called when an object passes between the player and the camera. It changes the object's material to be transparent and resets once the view is clear. Edit the values of lowestOpacity and transitionSpeed directly in the script if you want to change the look.\uc0\u8232 	Lowest Opacity: How transparent the object should be, 1 being opaque, 0 being invisible.\u8232 	TransitionSpeed: How fast to change from normal to lowest opacity.\
+\
+\
+\
+
+\f0\b CREDIT
+\f2\b0 \
+The Ethan model and textures are part of Unity's standard assets.\uc0\u8232 The skybox was created using this CC0 image from pxhere.com: {\field{\*\fldinst{HYPERLINK "https://pxhere.com/en/photo/496627"}}{\fldrslt https://pxhere.com/en/photo/496627}}\uc0\u8232 The ground materials were created using CC0 assets from {\field{\*\fldinst{HYPERLINK "http://cc0textures.com/"}}{\fldrslt http://cc0textures.com/}} (MetalWalkway & SurfaceImperfections) and  {\field{\*\fldinst{HYPERLINK "http://devassets.com/assets/general-textures/"}}{\fldrslt http://devassets.com/assets/general-textures/}} (all others).\
+}
