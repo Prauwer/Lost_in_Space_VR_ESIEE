@@ -7037,10 +7037,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3349621d8f2ed47b6a704ad16464e64c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seatAnchor: {fileID: 0}
-  exitAnchor: {fileID: 0}
+  seatAnchor: {fileID: 2080004061}
+  exitAnchor: {fileID: 2080004060}
   seatedControls: {fileID: 0}
   cooldown: 1
+--- !u!4 &2080004060 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8301950171483787787, guid: 86dd855cf96be5a43ba247524a47dc79, type: 3}
+  m_PrefabInstance: {fileID: 2080004056}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2080004061 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7857546242053396607, guid: 86dd855cf96be5a43ba247524a47dc79, type: 3}
+  m_PrefabInstance: {fileID: 2080004056}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2086773644 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3440933689015287788, guid: 0d594c4b2158e0e4aa055ebeb682dd49, type: 3}
