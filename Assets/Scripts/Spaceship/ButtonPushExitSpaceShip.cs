@@ -5,16 +5,11 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class ButtonPushExitSpaceShip : MonoBehaviour
 {
-    public SpaceshipInteriorInteractions interior;
+    SpaceshipInteriorInteractions interior;
     // Start is called before the first frame update
     void Start()
     {
+        interior = FindObjectOfType<SpaceshipInteriorInteractions>();
         GetComponent<XRSimpleInteractable>().selectEntered.AddListener(x => interior.ExitSpaceShip());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

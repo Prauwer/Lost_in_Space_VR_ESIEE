@@ -22,7 +22,7 @@ public class EnterPlanet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Détection du bouton B/Y via le nouveau Input System
+        // Dï¿½tection du bouton B/Y via le nouveau Input System
         foreach (var dev in InputSystem.devices)
         {
             var btn = dev.TryGetChildControl<ButtonControl>("secondaryButton");

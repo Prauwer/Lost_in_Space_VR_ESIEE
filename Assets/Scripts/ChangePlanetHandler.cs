@@ -17,7 +17,7 @@ public class ChangePlanetHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class ChangePlanetHandler : MonoBehaviour
 
         if (!isInSpace)
         {
-            // Détection du bouton B/Y via le nouveau Input System
+            // Dï¿½tection du bouton B/Y via le nouveau Input System
             foreach (var dev in InputSystem.devices)
             {
                 var btn = dev.TryGetChildControl<ButtonControl>("secondaryButton");
