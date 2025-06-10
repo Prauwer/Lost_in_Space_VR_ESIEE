@@ -14,18 +14,45 @@ public class ChangePlanetHandler : MonoBehaviour
     public float cooldown = 1f;
     private float lastActionTime = 0f;
 
-    private Transform SpaceshipPosition;
     public bool isInSpace = true;
+
+    GameObject Space;
+    public Vector3 SpacePosition;
+    public Quaternion SpaceRotation;
+
     // Start is called before the first frame update
     void Start()
     {
+    }
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (isInSpace && scene.name == "main scene")
+        {
+            var newSpace = GameObject.FindGameObjectWithTag("Space");
+            if (newSpace != null)
+            {
+                newSpace.transform.position = SpacePosition;
+                newSpace.transform.rotation = SpaceRotation;
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        Space = GameObject.FindGameObjectWithTag("Space");
         if (!isInSpace)
         {
             // D�tection du bouton B/Y via le nouveau Input System
@@ -47,8 +74,11 @@ public class ChangePlanetHandler : MonoBehaviour
 
     public void GoToPlanet(string sceneName)
     {
-        SpaceshipPosition = gameObject.transform;
+        SpacePosition = Space.transform.position;
+        SpaceRotation = Space.transform.rotation;
         SceneManager.LoadScene(sceneName);
+        Debug.Log(SpacePosition);
+        Debug.Log(SpaceRotation);
         isInSpace = false;
         StartCoroutine(ResetSecondaryButton());
 
@@ -56,11 +86,8 @@ public class ChangePlanetHandler : MonoBehaviour
 
     void GoToSpace()
     {
-        //gameObject.transform.position = SpaceshipPosition.position;
-        //gameObject.transform.rotation = SpaceshipPosition.rotation;
         isInSpace = true;
         SceneManager.LoadScene("main scene");
-
         StartCoroutine(ResetSecondaryButton());
     }
 

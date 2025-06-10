@@ -31,18 +31,7 @@ public class SeatedControls : MonoBehaviour
 
     void Awake()
     {
-        if (spaceOutside == null)
-        {
-            Debug.LogError("SeatedControls: spaceOutside non assigné !");
-            enabled = false;
-            return;
-        }
-        childCloths = spaceOutside.GetComponentsInChildren<Cloth>();
-        foreach (var c in childCloths)
-        {
-            c.useGravity = false;
-            c.externalAcceleration = Vector3.zero;
-        }
+
     }
 
     void Start()
@@ -55,7 +44,6 @@ public class SeatedControls : MonoBehaviour
             return;
         }
         characterController = xrOriginComp.GetComponent<CharacterController>();
-        enabled = false;
     }
 
     void Update()
@@ -96,6 +84,13 @@ public class SeatedControls : MonoBehaviour
 
                 float currentSkyboxRot = RenderSettings.skybox.GetFloat("_Rotation");
                 RenderSettings.skybox.SetFloat("_Rotation", currentSkyboxRot - yawAngle);
+            }
+
+            childCloths = spaceOutside.GetComponentsInChildren<Cloth>();
+            foreach (var c in childCloths)
+            {
+                c.useGravity = false;
+                c.externalAcceleration = Vector3.zero;
             }
 
             foreach (var c in childCloths)

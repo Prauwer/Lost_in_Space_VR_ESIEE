@@ -9,6 +9,8 @@ TagManager:
   - familyPhoto
   - Effector
   - SpaceShip
+  - DonTDestroy
+  - Space
   layers:
   - Default
   - TransparentFX

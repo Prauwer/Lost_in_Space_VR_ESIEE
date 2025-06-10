@@ -32,6 +32,7 @@ public class EnterPlanet : MonoBehaviour
                 {
                     if (Time.time - lastActionTime >= cooldown)
                     {
+
                         lastActionTime = Time.time;
                         ChangePlanetHandler.GoToPlanet(SceneName);
                     }
