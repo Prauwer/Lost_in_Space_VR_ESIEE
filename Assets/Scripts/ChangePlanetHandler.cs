@@ -3,8 +3,10 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using Unity.XR.CoreUtils;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation;
+using System.Collections;
 
 public class ChangePlanetHandler : MonoBehaviour
 {
@@ -48,6 +50,8 @@ public class ChangePlanetHandler : MonoBehaviour
         SpaceshipPosition = gameObject.transform;
         SceneManager.LoadScene(sceneName);
         isInSpace = false;
+        StartCoroutine(ResetSecondaryButton());
+
     }
 
     void GoToSpace()
@@ -56,11 +60,23 @@ public class ChangePlanetHandler : MonoBehaviour
         //gameObject.transform.rotation = SpaceshipPosition.rotation;
         isInSpace = true;
         SceneManager.LoadScene("main scene");
-        var sim = FindObjectOfType<XRDeviceSimulator>();
-        if (sim != null)
+
+        StartCoroutine(ResetSecondaryButton());
+    }
+
+    IEnumerator ResetSecondaryButton()
+    {
+        // on attend la fin de frame pour être sûr d’être dans la nouvelle scène
+        yield return null;
+
+        // pour chaque device on remet la valeur du bouton à 0
+        foreach (var dev in InputSystem.devices)
         {
-            sim.enabled = false;
-            sim.enabled = true;
+            var btn = dev.TryGetChildControl<ButtonControl>("secondaryButton");
+            if (btn != null)
+                InputState.Change(btn, 0f);
         }
+        // on force le système à traiter l’événement tout de suite
+        InputSystem.Update();
     }
 }
