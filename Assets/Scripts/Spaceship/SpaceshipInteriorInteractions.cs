@@ -26,28 +26,25 @@ public class SpaceshipInteriorInteractions : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void ExitSpaceShip()
     {
         if (ParentObject.isInSpace)
         {
             canExit = false;
         }
-        if (Input.GetKeyDown(KeyCode.F))
+        if (canExit)
         {
-            if (canExit)
-            {
-                Exterior.SetActive(true);
-                Player.position = exitpoint.transform.position;
+            Exterior.SetActive(true);
+            Player.position = exitpoint.transform.position;
 
-                // reset X/ Z de l'offset de la caméra (garde la hauteur)
-                var floor = xrOriginComp.CameraFloorOffsetObject.transform;
-                float currentY = floor.localPosition.y;
-                floor.localPosition = new Vector3(0f, currentY, 0f);
-                floor.localRotation = Quaternion.identity;
+            // reset X/ Z de l'offset de la camï¿½ra (garde la hauteur)
+            var floor = xrOriginComp.CameraFloorOffsetObject.transform;
+            float currentY = floor.localPosition.y;
+            floor.localPosition = new Vector3(0f, currentY, 0f);
+            floor.localRotation = Quaternion.identity;
 
 
-                gameObject.SetActive(false);
-            }
+            gameObject.SetActive(false);
         }
     }
 
