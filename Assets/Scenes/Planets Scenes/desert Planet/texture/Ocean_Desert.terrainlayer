@@ -6,13 +6,13 @@ TerrainLayer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: layer_Ground3cc0f254a2c535401
-  m_DiffuseTexture: {fileID: 0}
-  m_NormalMapTexture: {fileID: 0}
+  m_Name: Ocean_Desert
+  m_DiffuseTexture: {fileID: 2800000, guid: c6ed0c6463040474c886353259dafc29, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: d7195787483935f44a9c4fe5580b33b8, type: 3}
   m_MaskMapTexture: {fileID: 0}
-  m_TileSize: {x: 1, y: 1}
+  m_TileSize: {x: 2, y: 2}
   m_TileOffset: {x: 0, y: 0}
-  m_Specular: {r: 0, g: 0, b: 0, a: 0}
+  m_Specular: {r: 1, g: 0.59607846, b: 0.47843137, a: 0}
   m_Metallic: 0
   m_Smoothness: 0
   m_NormalScale: 1
