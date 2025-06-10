@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/ChangePlanetHandler.cs.meta
+guid: a792c4d9f9a1d684faad6d1586837e83
+========
 guid: c1a0f0fb5b403ab4ba7e9df80ac9c118
+>>>>>>>> c5e14ff (spaceship between scenes wip):Assets/PickupManager.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
