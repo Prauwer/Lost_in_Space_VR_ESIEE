@@ -46,8 +46,8 @@ public class ChangePlanetHandler : MonoBehaviour
     public void GoToPlanet(string sceneName)
     {
         SpaceshipPosition = gameObject.transform;
-        isInSpace = false;
         SceneManager.LoadScene(sceneName);
+        isInSpace = false;
     }
 
     void GoToSpace()

@@ -16,25 +16,29 @@ public class EnterPlanet : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        //ChangePlanetHandler = FindObjectOfType<ChangePlanetHandler>();
+        ChangePlanetHandler = FindObjectOfType<ChangePlanetHandler>();
     }
 
     // Update is called once per frame
     void Update()
     {
         // D�tection du bouton B/Y via le nouveau Input System
-        foreach (var dev in InputSystem.devices)
+        if (ChangePlanetHandler.isInSpace)
         {
-            var btn = dev.TryGetChildControl<ButtonControl>("secondaryButton");
-            if (canEnter && btn != null && btn.wasPressedThisFrame)
+            foreach (var dev in InputSystem.devices)
             {
-                if (Time.time - lastActionTime >= cooldown)
+                var btn = dev.TryGetChildControl<ButtonControl>("secondaryButton");
+                if (canEnter && btn != null && btn.wasPressedThisFrame)
                 {
-                    lastActionTime = Time.time;
-                    ChangePlanetHandler.GoToPlanet(SceneName);
+                    if (Time.time - lastActionTime >= cooldown)
+                    {
+                        lastActionTime = Time.time;
+                        ChangePlanetHandler.GoToPlanet(SceneName);
+                    }
+                    break;
                 }
-                break;
             }
+
         }
     }
 

@@ -83,7 +83,7 @@ public class SeatedControls : MonoBehaviour
             float deltaZ = leftStickInput.x * moveSpeed * Time.deltaTime;
             float deltaX = leftStickInput.y * moveSpeed * Time.deltaTime;
 
-            spaceOutside.transform.Translate(deltaX, 0f, -deltaZ, Space.World);
+            spaceOutside.transform.Translate(-deltaZ, 0f, -deltaX, Space.World);
 
             if (shipTransform != null && spaceOutside != null)
             {
