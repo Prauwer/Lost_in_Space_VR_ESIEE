@@ -24,6 +24,7 @@ public class XRSocketTagInteractor : XRSocketInteractor
 
         if (args.interactableObject.transform.CompareTag(targetTag))
         {
+            args.interactableObject.transform.SetParent(transform);
             if (player != null)
             {
                 player.IncrementScore();
