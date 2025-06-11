@@ -11,7 +11,6 @@ public class SpaceshipInteriorInteractions : MonoBehaviour
 {
     public Transform Player;
 
-    bool canExit;
 
     private XROrigin xrOriginComp;
     public GameObject Exterior;
@@ -25,41 +24,22 @@ public class SpaceshipInteriorInteractions : MonoBehaviour
         xrOriginComp = FindObjectOfType<XROrigin>();
     }
 
-    // Update is called once per frame
     public void ExitSpaceShip()
     {
         if (ParentObject.isInSpace)
         {
-            canExit = false;
+            return;
         }
-        if (canExit)
-        {
-            Exterior.SetActive(true);
-            Player.position = exitpoint.transform.position;
+        Exterior.SetActive(true);
+        Player.position = exitpoint.transform.position;
 
-            // reset X/ Z de l'offset de la cam�ra (garde la hauteur)
-            var floor = xrOriginComp.CameraFloorOffsetObject.transform;
-            float currentY = floor.localPosition.y;
-            floor.localPosition = new Vector3(0f, currentY, 0f);
-            floor.localRotation = Quaternion.identity;
+        // reset X/ Z de l'offset de la cam�ra (garde la hauteur)
+        var floor = xrOriginComp.CameraFloorOffsetObject.transform;
+        float currentY = floor.localPosition.y;
+        floor.localPosition = new Vector3(0f, currentY, 0f);
+        floor.localRotation = Quaternion.identity;
 
 
-            gameObject.SetActive(false);
-        }
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        canExit = true;
-        DriveUI.gameObject.SetActive(true);
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player") && gameObject.active)
-        {
-            canExit = false;
-            DriveUI.gameObject.SetActive(false);
-        }
+        gameObject.SetActive(false);
     }
 }

@@ -11,13 +11,14 @@ public class ArrivedOnPlanetHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         DonTDestroy = GameObject.FindGameObjectWithTag("DonTDestroy");
         TeleportationArea = FindObjectOfType<TeleportationArea>();
         Terrain = FindObjectOfType<Terrain>();
 
         DonTDestroy.transform.position = gameObject.transform.position;
         DonTDestroy.transform.rotation = gameObject.transform.rotation;
-        
+        */
         //TeleportationArea.colliders.Add(Terrain.GetComponent<Collider>());
 
     }
