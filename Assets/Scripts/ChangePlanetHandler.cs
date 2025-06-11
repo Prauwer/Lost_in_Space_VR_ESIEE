@@ -10,19 +10,20 @@ using System.Collections;
 
 public class ChangePlanetHandler : MonoBehaviour
 {
-    [Tooltip("Temps minimal entre deux toggles")]
     public float cooldown = 1f;
     private float lastActionTime = 0f;
 
     public bool isInSpace = true;
 
-    GameObject Space;
-    public Vector3 SpacePosition;
-    public Quaternion SpaceRotation;
+    private GameObject Space;
+    private Vector3 SpacePosition;
+    private Quaternion SpaceRotation;
 
-    // Start is called before the first frame update
-    void Start()
+    private bool shouldRestorePosition = false; // <- ajouté
+
+    void Awake()
     {
+        DontDestroyOnLoad(gameObject);
     }
 
     void OnEnable()
@@ -37,25 +38,23 @@ public class ChangePlanetHandler : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (isInSpace && scene.name == "main scene")
+        if (scene.name == "main scene")
         {
-            var newSpace = GameObject.FindGameObjectWithTag("Space");
-            if (newSpace != null)
+            Space = GameObject.FindGameObjectWithTag("Space");
+
+            if (shouldRestorePosition && Space != null)
             {
-                newSpace.transform.position = SpacePosition;
-                newSpace.transform.rotation = SpaceRotation;
+                Space.transform.position = SpacePosition;
+                Space.transform.rotation = SpaceRotation;
+                shouldRestorePosition = false;
             }
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-        Space = GameObject.FindGameObjectWithTag("Space");
         if (!isInSpace)
         {
-            // D�tection du bouton B/Y via le nouveau Input System
             foreach (var dev in InputSystem.devices)
             {
                 var btn = dev.TryGetChildControl<ButtonControl>("secondaryButton");
@@ -74,14 +73,17 @@ public class ChangePlanetHandler : MonoBehaviour
 
     public void GoToPlanet(string sceneName)
     {
-        SpacePosition = Space.transform.position;
-        SpaceRotation = Space.transform.rotation;
-        SceneManager.LoadScene(sceneName);
-        Debug.Log(SpacePosition);
-        Debug.Log(SpaceRotation);
-        isInSpace = false;
-        StartCoroutine(ResetSecondaryButton());
+        var spaceObj = GameObject.FindGameObjectWithTag("Space");
+        if (spaceObj != null)
+        {
+            SpacePosition = spaceObj.transform.position;
+            SpaceRotation = spaceObj.transform.rotation;
+            shouldRestorePosition = true; // <- important
+        }
 
+        isInSpace = false;
+        SceneManager.LoadScene(sceneName);
+        StartCoroutine(ResetSecondaryButton());
     }
 
     void GoToSpace()
@@ -93,17 +95,15 @@ public class ChangePlanetHandler : MonoBehaviour
 
     IEnumerator ResetSecondaryButton()
     {
-        // on attend la fin de frame pour être sûr d’être dans la nouvelle scène
         yield return null;
 
-        // pour chaque device on remet la valeur du bouton à 0
         foreach (var dev in InputSystem.devices)
         {
             var btn = dev.TryGetChildControl<ButtonControl>("secondaryButton");
             if (btn != null)
                 InputState.Change(btn, 0f);
         }
-        // on force le système à traiter l’événement tout de suite
+
         InputSystem.Update();
     }
 }
