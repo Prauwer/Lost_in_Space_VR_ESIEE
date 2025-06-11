@@ -26,10 +26,6 @@ public class SpaceshipInteriorInteractions : MonoBehaviour
 
     public void ExitSpaceShip()
     {
-        if (ParentObject.isInSpace)
-        {
-            return;
-        }
         Exterior.SetActive(true);
         Player.position = exitpoint.transform.position;
 

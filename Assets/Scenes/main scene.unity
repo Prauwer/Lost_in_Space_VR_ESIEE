@@ -773,6 +773,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frozen_Planet
       objectReference: {fileID: 0}
+    - target: {fileID: 590164343012922702, guid: 4ed1cb8204021cb499ace28673c0b090, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2312217251548875019, guid: 4ed1cb8204021cb499ace28673c0b090, type: 3}
       propertyPath: m_LocalPosition.x
       value: 920.21466
@@ -814,18 +818,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5909235415404834408, guid: 4ed1cb8204021cb499ace28673c0b090, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2312217251548875019, guid: 4ed1cb8204021cb499ace28673c0b090, type: 3}
-      insertIndex: 1
+      insertIndex: 0
       addedObject: {fileID: 1047278745}
     - targetCorrespondingSourceObject: {fileID: 2312217251548875019, guid: 4ed1cb8204021cb499ace28673c0b090, type: 3}
-      insertIndex: 2
+      insertIndex: 1
       addedObject: {fileID: 2138238017}
     - targetCorrespondingSourceObject: {fileID: 1871457974443768133, guid: 4ed1cb8204021cb499ace28673c0b090, type: 3}
       insertIndex: -1
       addedObject: {fileID: 489769548}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 590164343012922702, guid: 4ed1cb8204021cb499ace28673c0b090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 545238542}
+    - targetCorrespondingSourceObject: {fileID: 590164343012922702, guid: 4ed1cb8204021cb499ace28673c0b090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 545238541}
     - targetCorrespondingSourceObject: {fileID: 4443406088321887861, guid: 4ed1cb8204021cb499ace28673c0b090, type: 3}
       insertIndex: -1
       addedObject: {fileID: 366926458}
@@ -858,6 +869,11 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &366926459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 590164343012922702, guid: 4ed1cb8204021cb499ace28673c0b090, type: 3}
+  m_PrefabInstance: {fileID: 366926456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &370862254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1235,6 +1251,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desert_planet
       objectReference: {fileID: 0}
+    - target: {fileID: 3148313835877745326, guid: e01251c1a9c90f149920e7fe4c384ba9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3223661055410448593, guid: e01251c1a9c90f149920e7fe4c384ba9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -854.78534
@@ -1291,13 +1311,96 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5523768252032961685, guid: e01251c1a9c90f149920e7fe4c384ba9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1568386247}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3148313835877745326, guid: e01251c1a9c90f149920e7fe4c384ba9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 526035537}
+    - targetCorrespondingSourceObject: {fileID: 3148313835877745326, guid: e01251c1a9c90f149920e7fe4c384ba9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 526035536}
   m_SourcePrefab: {fileID: 100100000, guid: e01251c1a9c90f149920e7fe4c384ba9, type: 3}
+--- !u!1 &526035535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3148313835877745326, guid: e01251c1a9c90f149920e7fe4c384ba9, type: 3}
+  m_PrefabInstance: {fileID: 526035534}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &526035536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526035535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76a70f798bc81c4db704c5bd0fece84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChangePlanetHandler: {fileID: 0}
+  SceneName: Desert Planet
+  cooldown: 1
+--- !u!135 &526035537
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526035535}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0.0056198835, y: -0.011557698, z: -0.030786037}
 --- !u!4 &545238540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2312217251548875019, guid: 4ed1cb8204021cb499ace28673c0b090, type: 3}
   m_PrefabInstance: {fileID: 366926456}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &545238541
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366926459}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: -0.0021166801, y: -0.0059707193, z: -0.009314229}
+--- !u!114 &545238542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366926459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76a70f798bc81c4db704c5bd0fece84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChangePlanetHandler: {fileID: 0}
+  SceneName: Frozen Planete
+  cooldown: 1
 --- !u!1001 &685876679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2179,6 +2282,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien_Planet
       objectReference: {fileID: 0}
+    - target: {fileID: 3597813168115634576, guid: 6a043c756d135f34893b8b1c6a3c2ed4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5614633700526703097, guid: 6a043c756d135f34893b8b1c6a3c2ed4, type: 3}
       propertyPath: m_LocalScale.x
       value: 229.99995
@@ -2232,7 +2339,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2508040057363018218, guid: 6a043c756d135f34893b8b1c6a3c2ed4, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5614633700526703097, guid: 6a043c756d135f34893b8b1c6a3c2ed4, type: 3}
       insertIndex: 0
@@ -2244,6 +2352,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1893137109}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3597813168115634576, guid: 6a043c756d135f34893b8b1c6a3c2ed4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2072247714}
+    - targetCorrespondingSourceObject: {fileID: 3597813168115634576, guid: 6a043c756d135f34893b8b1c6a3c2ed4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2072247713}
     - targetCorrespondingSourceObject: {fileID: 4184642276262321685, guid: 6a043c756d135f34893b8b1c6a3c2ed4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1092163507}
@@ -2276,6 +2390,11 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1092163508 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3597813168115634576, guid: 6a043c756d135f34893b8b1c6a3c2ed4, type: 3}
+  m_PrefabInstance: {fileID: 1092163505}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1145492522 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5523768252032961685, guid: e01251c1a9c90f149920e7fe4c384ba9, type: 3}
@@ -2741,8 +2860,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tundra_planet
       objectReference: {fileID: 0}
+    - target: {fileID: 4553986092276203457, guid: 35dd6add1e58ddd46a1f6aede6c43f48, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9005533469670726276, guid: 35dd6add1e58ddd46a1f6aede6c43f48, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4481304168671210924, guid: 35dd6add1e58ddd46a1f6aede6c43f48, type: 3}
       insertIndex: -1
@@ -2754,6 +2878,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1250196751}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4553986092276203457, guid: 35dd6add1e58ddd46a1f6aede6c43f48, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1442816679}
+    - targetCorrespondingSourceObject: {fileID: 4553986092276203457, guid: 35dd6add1e58ddd46a1f6aede6c43f48, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1442816678}
     - targetCorrespondingSourceObject: {fileID: 4444541016655570643, guid: 35dd6add1e58ddd46a1f6aede6c43f48, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1442816676}
@@ -2786,6 +2916,47 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1442816677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4553986092276203457, guid: 35dd6add1e58ddd46a1f6aede6c43f48, type: 3}
+  m_PrefabInstance: {fileID: 1442816674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1442816678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442816677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76a70f798bc81c4db704c5bd0fece84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChangePlanetHandler: {fileID: 0}
+  SceneName: tundra Planet
+  cooldown: 1
+--- !u!135 &1442816679
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442816677}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0.012658119, y: 0.016705694, z: -0.01727115}
 --- !u!4 &1485215513 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7095712491894049414, guid: 7fe8ad3a67fc4f34e99e112dfc88cef6, type: 3}
@@ -3197,7 +3368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChangePlanetHandler: {fileID: 0}
-  SceneName: testFlatPlanet
+  SceneName: Planet Earth
   cooldown: 1
 --- !u!1001 &1759873053
 PrefabInstance:
@@ -4075,6 +4246,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5614633700526703097, guid: 6a043c756d135f34893b8b1c6a3c2ed4, type: 3}
   m_PrefabInstance: {fileID: 1092163505}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &2072247713
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092163508}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: -0.01160813, y: 0.012673263, z: 0.007628892}
+--- !u!114 &2072247714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092163508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76a70f798bc81c4db704c5bd0fece84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChangePlanetHandler: {fileID: 0}
+  SceneName: Alien Planet
+  cooldown: 1
 --- !u!4 &2138160878 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7095712491894049414, guid: 7fe8ad3a67fc4f34e99e112dfc88cef6, type: 3}

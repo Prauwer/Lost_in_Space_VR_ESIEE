@@ -86,6 +86,7 @@ public class ChangePlanetHandler : MonoBehaviour
         StartCoroutine(ResetSecondaryButton());
     }
 
+
     void GoToSpace()
     {
         isInSpace = true;

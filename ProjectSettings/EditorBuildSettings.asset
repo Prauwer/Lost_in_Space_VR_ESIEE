@@ -9,14 +9,26 @@ EditorBuildSettings:
     path: Assets/Menu/Menu.unity
     guid: 5e834d4379f26d641910018ea1149d9c
   - enabled: 1
+    path: Assets/Scenes/Loader.unity
+    guid: 97b2ed32dcbac7a4e97998f09aad45b5
+  - enabled: 1
     path: Assets/Scenes/main scene.unity
     guid: 5064f45516803624ca95918dd50b0625
   - enabled: 1
-    path: Assets/Scenes/testFlatPlanet.unity
-    guid: a01d0a9130c914a49852e38264707593
+    path: Assets/Scenes/Planets Scenes/Earth Planet/Planet Earth.unity
+    guid: bd4f80b6afa0f4d5ca686513103c99fb
   - enabled: 1
-    path: Assets/Scenes/Loader.unity
-    guid: 97b2ed32dcbac7a4e97998f09aad45b5
+    path: Assets/Scenes/Planets Scenes/Frozen Planet/Frozen Planete.unity
+    guid: a6d6ade2721d64ab795595ec901828a6
+  - enabled: 1
+    path: Assets/Scenes/Planets Scenes/Tundra Planet/tundra Planet.unity
+    guid: 0be7f4e6bd2a34b3ea4e799c43a98753
+  - enabled: 1
+    path: Assets/Scenes/Planets Scenes/desert Planet/Desert Planet.unity
+    guid: fd8b8a93e270a4760bb9c78e640dd1f0
+  - enabled: 1
+    path: Assets/Scenes/Planets Scenes/Alien Planete/Alien Planet.unity
+    guid: 35714c52d012c4744b4ba801afaff8a7
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7b1134bd1b49a9541b94bf67f4ca5db1, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6a73d3b6475974f41820704a26da2521, type: 2}

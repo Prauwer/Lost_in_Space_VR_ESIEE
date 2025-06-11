@@ -39,7 +39,6 @@ public class EnterPlanet : MonoBehaviour
                     break;
                 }
             }
-
         }
     }
 
