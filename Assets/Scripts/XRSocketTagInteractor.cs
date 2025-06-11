@@ -6,7 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class XRSocketTagInteractor : XRSocketInteractor
 {
     public string targetTag;
-    public PlayerScript player;
+    public PlayerController player;
 
     public override bool CanHover(IXRHoverInteractable interactable)
     {
