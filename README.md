@@ -251,4 +251,4 @@ Les anciennes mécaniques ont été re-intégrées dans cette version du jeu (le
 
 # Cahier des charges
 
-https://www.canva.com/design/DAGoPjFAqIY/Xx7yPrHJCDMVKIzrR5wn3A/edit?utm_content=DAGoPjFAqIY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+- Lien de la présentation : [Présentation Lost in Space](https://www.canva.com/design/DAGoPjFAqIY/Xx7yPrHJCDMVKIzrR5wn3A/edit?utm_content=DAGoPjFAqIY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
