@@ -33,7 +33,7 @@ Ces deux inspirations renforcent le cœur du jeu : faire vivre au joueur une vé
 
 # Démo globale
 
-**TODO :** démo en cours de production
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/cUn97VYdOEI/0.jpg)](https://www.youtube.com/watch?v=cUn97VYdOEI)
 
 # Fonctionnalités
 
